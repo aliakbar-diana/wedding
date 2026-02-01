@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Алиакбар & Диана</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="https://em-content.zobj.net/source/apple/391/sparkling-heart_1f496.png" type="image/png">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Great+Vibes&display=swap" rel="stylesheet">
 
@@ -341,6 +342,8 @@ body {
   z-index: 10;
   animation: pulse 2.5s infinite;
   transition: .3s ease;
+  text-decoration: none;
+  display: inline-block;
 }
 
 @keyframes pulse {
@@ -357,11 +360,9 @@ body {
 
 /* Love Story Section */
 .love-story {
-  background: #e8e6e6;
-  padding: 80px 20px;
+  background: #fff;
+  padding: 100px 20px;
   text-align: center;
-  font-family: 'Playfair Display', serif;
-  color: #7a5a5a;
 }
 
 .love-story .container {
@@ -372,52 +373,108 @@ body {
 .love-story h2 {
   font-family: 'Great Vibes', cursive;
   font-size: 48px;
+  margin-bottom: 20px;
+  color: #8b5e5e;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards;
+}
+
+.love-story .subtitle {
+  font-size: 16px;
+  color: #b08a8a;
   margin-bottom: 60px;
-  color: #8b5e5e;
+  letter-spacing: 1px;
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 1s forwards;
+  animation: fadeUp 1s forwards 0.2s;
 }
 
-.story-row {
+.story-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.story-moment {
   display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  flex-wrap: wrap;
-}
-
-.story-block {
-  flex: 1;
-  padding: 0 20px;
+  align-items: center;
+  margin-bottom: 80px;
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 1s forwards;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s forwards;
 }
 
-.story-block h3 {
+.story-moment:nth-child(1) { animation-delay: 0.3s; }
+.story-moment:nth-child(2) { animation-delay: 0.5s; }
+.story-moment:nth-child(3) { animation-delay: 0.7s; }
+
+.story-moment:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.story-date {
+  flex: 0 0 120px;
   font-family: 'Great Vibes', cursive;
-  font-size: 36px;
-  margin-bottom: 15px;
+  font-size: 32px;
   color: #8b5e5e;
+  text-align: center;
 }
 
-.story-block p {
+.story-moment:nth-child(even) .story-date {
+  text-align: center;
+}
+
+.story-connector {
+  flex: 0 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.story-dot {
+  width: 20px;
+  height: 20px;
+  background: #d7a1a1;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(215, 161, 161, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.story-content {
+  flex: 1;
+  background: rgba(255, 250, 246, 0.8);
+  padding: 30px 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.story-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.story-content h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: #8b5e5e;
+  margin-bottom: 15px;
+}
+
+.story-content p {
   font-size: 16px;
   line-height: 1.8;
   color: #7a5a5a;
-}
-
-.divider {
-  width: 1px;
-  background-color: #7a5a5a;
-  opacity: 0.5;
   margin: 0;
-  align-self: stretch;
 }
 
 /* Wedding Schedule Section */
 .wedding-schedule {
-  background: #fff;
+  background: #e8e6e6;
   padding: 80px 20px;
   text-align: center;
 }
@@ -539,6 +596,225 @@ body {
   margin: 0;
 }
 
+/* RSVP Form Section */
+.rsvp-section {
+  background: linear-gradient(135deg, #f5f0ed 0%, #e8e6e6 100%);
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.rsvp-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(215, 161, 161, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: movePattern 60s linear infinite;
+  z-index: 0;
+}
+
+@keyframes movePattern {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+.rsvp-section .container {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.rsvp-section h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 52px;
+  margin-bottom: 20px;
+  color: #8b5e5e;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+}
+
+.rsvp-section .subtitle {
+  font-size: 16px;
+  color: #b08a8a;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
+
+.rsvp-form {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(215, 161, 161, 0.2);
+  animation: formFloat 3s ease-in-out infinite;
+}
+
+@keyframes formFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.form-group {
+  margin-bottom: 35px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  color: #8b5e5e;
+  margin-bottom: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 18px 24px;
+  font-size: 16px;
+  font-family: 'Playfair Display', serif;
+  color: #7a5a5a;
+  background: #fff;
+  border: 2px solid #d7a1a1;
+  border-radius: 12px;
+  transition: all .3s ease;
+  outline: none;
+}
+
+.form-group input[type="text"]:focus {
+  border-color: #c58f8f;
+  box-shadow: 0 0 0 4px rgba(215, 161, 161, 0.2);
+  transform: translateY(-2px);
+}
+
+.form-group input[type="text"]::placeholder {
+  color: #b08a8a;
+  opacity: 0.7;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #fff 0%, #fffaf6 100%);
+  border: 2px solid #d7a1a1;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all .3s ease;
+  font-size: 16px;
+  color: #7a5a5a;
+  position: relative;
+  overflow: hidden;
+}
+
+.radio-label::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(215, 161, 161, 0.1), transparent);
+  transition: left .5s ease;
+}
+
+.radio-label:hover::before {
+  left: 100%;
+}
+
+.radio-label:hover {
+  border-color: #c58f8f;
+  background: linear-gradient(135deg, #fff 0%, #fff5f0 100%);
+  transform: translateX(5px);
+  box-shadow: 0 4px 15px rgba(197, 143, 143, 0.2);
+}
+
+.radio-label input[type="radio"] {
+  margin-right: 15px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  accent-color: #c58f8f;
+  flex-shrink: 0;
+}
+
+.radio-icon {
+  margin-right: 10px;
+  font-size: 20px;
+  transition: transform .3s ease;
+  flex-shrink: 0;
+}
+
+.radio-label:hover .radio-icon {
+  transform: scale(1.2) rotate(10deg);
+}
+
+.radio-label input[type="radio"]:checked ~ span {
+  color: #8b5e5e;
+  font-weight: 500;
+}
+
+.radio-label input[type="radio"]:checked {
+  transform: scale(1.1);
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #d7a1a1, #c58f8f);
+  color: #fff;
+  border: none;
+  padding: 20px 70px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 35px;
+  cursor: pointer;
+  font-family: 'Playfair Display', serif;
+  transition: all .3s ease;
+  text-transform: uppercase;
+  box-shadow: 0 8px 25px rgba(197,143,143,.4);
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width .5s ease, height .5s ease;
+}
+
+.submit-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(197,143,143,.5);
+}
+
+.submit-btn:active {
+  transform: translateY(-1px);
+}
+
 /* Venue Section */
 .venue-section {
   position: relative;
@@ -598,6 +874,35 @@ body {
   font-weight: 500;
   color: #b08a8a;
   margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.location-btn {
+  background: linear-gradient(135deg, #d7a1a1, #c58f8f);
+  color: #fff;
+  border: none;
+  padding: 16px 50px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: .3s ease;
+  font-family: 'Playfair Display', serif;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(197,143,143,.3);
+}
+
+.location-btn:hover {
+  box-shadow: 0 8px 30px rgba(197,143,143,.5);
+  transform: translateY(-3px);
+}
+
+.location-btn::before {
+  content: '📍';
+  font-size: 18px;
 }
 
 .rsvp-venue-btn {
@@ -662,7 +967,15 @@ body {
   color: #d7a1a1;
   animation: heartbeat 1.5s ease-in-out infinite;
   display: inline-block;
+  margin-bottom: 20px;
+}
+
+.final-section .signature {
+  font-family: 'Great Vibes', cursive;
+  font-size: 32px;
+  color: #8b5e5e;
   margin-bottom: 40px;
+  font-weight: 400;
 }
 
 @keyframes heartbeat {
@@ -871,6 +1184,34 @@ body {
     display: flex;
   }
   
+  .rsvp-form {
+    padding: 40px 25px;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 16px 40px;
+  }
+  
+  .story-moment {
+    flex-direction: column !important;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  
+  .story-date {
+    flex: none;
+    margin-bottom: 15px;
+  }
+  
+  .story-connector {
+    display: none;
+  }
+  
+  .story-content {
+    width: 100%;
+  }
+
   .timeline::before {
     left: 30px;
   }
@@ -900,16 +1241,6 @@ body {
   
   .card h1 {
     font-size: 42px;
-  }
-  
-  .story-row {
-    flex-direction: column;
-  }
-  
-  .divider {
-    width: 100%;
-    height: 1px;
-    margin: 30px 0;
   }
   
   .footer-content {
@@ -955,6 +1286,10 @@ body {
   .final-section .heart {
     font-size: 60px;
   }
+  
+  .final-section .signature {
+    font-size: 24px;
+  }
 }
 </style>
 </head>
@@ -974,84 +1309,114 @@ body {
 
 <nav class="mobile-menu" id="mobileMenu">
   <a href="#love-story">Наша история</a>
-  <a href="#wedding-schedule">Расписание</a>
+  <a href="#rsvp">Подтверждение</a>
+  <a href="#venue">Место проведения</a>
   <a href="#photo-gallery">Фотографии</a>
 </nav>
 
 <header class="nav">
   <a href="#love-story">Наша история</a>
-  <a href="#wedding-schedule">Расписание</a>
+  <a href="#rsvp">Подтверждение</a>
+  <a href="#venue">Место проведения</a>
   <a href="#photo-gallery">Фотографии</a>
 </header>
 
 <section class="hero" id="hero">
   <div class="card">
-    <div class="date">2 мая 2026</div>
+    <div class="date">9 мая 2026</div>
     <h1 id="mainHeading">Алиакбар & Диана</h1>
-    <button class="rsvp">Я ПРИДУ!</button>
+    <a href="#rsvp" class="rsvp">Я ПРИДУ!</a>
   </div>
 </section>
 
 <section class="love-story" id="love-story">
   <div class="container">
-    <h2>И так начинается приключение</h2>
-    <p class="subtitle">Расписание праздника</p>
+    <h2>Наша история</h2>
+    <p class="subtitle">Путешествие двух сердец</p>
     
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">11:00</div>
-        <div class="timeline-content">
-          <p>Прибытие на место, где двое станут одним целым.</p>
+    <div class="story-timeline">
+      <div class="story-moment">
+        <div class="story-date">15 июня<br>2020</div>
+        <div class="story-connector">
+          <div class="story-dot"></div>
+        </div>
+        <div class="story-content">
+          <h3>Первая встреча</h3>
+          <p>Всё началось с одной случайной встречи, которая изменила наши жизни навсегда. В тот солнечный день мы и не подозревали, что судьба приготовила для нас что-то особенное.</p>
         </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">13:30</div>
-        <div class="timeline-content">
-          <p>Приготовьтесь к самой креативной свадебной фотосессии с женихом и невестой!</p>
+      <div class="story-moment">
+        <div class="story-date">3 февраля<br>2022</div>
+        <div class="story-connector">
+          <div class="story-dot"></div>
+        </div>
+        <div class="story-content">
+          <h3>Признание</h3>
+          <p>Под звёздным небом прозвучали слова, которые мы так долго хотели сказать друг другу. В этот момент мы поняли, что хотим быть вместе всегда.</p>
         </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">16:00</div>
-        <div class="timeline-content">
-          <p>Букет невесты найдет свою следующую обладательницу.</p>
+      <div class="story-moment">
+        <div class="story-date">12 декабря<br>2025</div>
+        <div class="story-connector">
+          <div class="story-dot"></div>
         </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">18:00</div>
-        <div class="timeline-content">
-          <p>Сначала любовь, потом торт, правильно? Давайте отпразднуем нашу любовь самым вкусным тортом.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">22:00</div>
-        <div class="timeline-content">
-          <p>Насладитесь небом, полным сверкающих фейерверков.</p>
+        <div class="story-content">
+          <h3>Предложение</h3>
+          <p>Самый волнительный момент нашей жизни! Вопрос был задан, ответ был "Да!", и мы начали планировать наше будущее вместе как семья.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="venue-section">
+<section class="rsvp-section" id="rsvp">
+  <div class="container">
+    <h2>Подтвердите присутствие</h2>
+    <p class="subtitle">Будем рады видеть вас на нашем празднике</p>
+    
+    <form class="rsvp-form" id="rsvpForm">
+      <div class="form-group">
+        <label for="guestName">Ваше имя</label>
+        <input type="text" id="guestName" name="guestName" placeholder="Введите ваше имя" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Вы придёте?</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="attendance" value="Да приду" checked>
+            <span>Да приду</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="attendance" value="Приду вместе с супругом (- ой)">
+            <span>Приду вместе с супругом (- ой)</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="attendance" value="Не приду">
+            <span>Не приду</span>
+          </label>
+        </div>
+      </div>
+      
+      <button type="submit" class="submit-btn">
+        <span>Отправить</span>
+      </button>
+    </form>
+  </div>
+</section>
+
+<section class="venue-section" id="venue">
   <div class="container">
     <h2>Место проведения</h2>
     
     <div class="venue-details">
-      <h3>Банкетный зал "Романтика"</h3>
-      <p>ул. Абая 150/230, Алматы</p>
-      <p class="venue-date">2 мая 2026 • 11:00</p>
+      <h3>Банкетный ресторан "White Hill"</h3>
+      <p>Проспект Кенес Нокина, 44д, Актобе</p>
+      <p class="venue-date">9 мая 2026 • 18:00</p>
+      <a href="https://2gis.kz/aktobe/geo/70000001059720090/57.188520,50.299068" target="_blank" class="location-btn">Открыть на карте</a>
     </div>
-    
-    <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform" target="_blank" class="rsvp-venue-btn">Я ПРИДУ!</a>
   </div>
 </section>
 
@@ -1059,6 +1424,7 @@ body {
   <div class="container">
     <h2>Не можем дождаться встречи с вами</h2>
     <div class="heart">♥</div>
+    <p class="signature">С уважением, Кайрат - Лиана</p>
     
     <div class="countdown-timer" id="countdown">
       <div class="countdown-item">
@@ -1083,21 +1449,21 @@ body {
 
 <section class="photo-gallery" id="photo-gallery">
   <div class="container">
-    <h2>Свадебные фотографии</h2>
+    <h2>Фотографии</h2>
     <p>Наши незабываемые моменты</p>
     
     <div class="photo-row">
       <div class="photo-item">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800" alt="Свадебное фото 1">
+        <img src="1.jpg" alt="Свадебное фото 1">
       </div>
       <div class="photo-item">
-        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800" alt="Свадебное фото 2">
+        <img src="2.jpg" alt="Свадебное фото 2">
       </div>
       <div class="photo-item">
-        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800" alt="Свадебное фото 3">
+        <img src="3.jpg" alt="Свадебное фото 3">
       </div>
       <div class="photo-item">
-        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800" alt="Свадебное фото 4">
+        <img src="4.jpg" alt="Свадебное фото 4">
       </div>
     </div>
   </div>
@@ -1113,8 +1479,8 @@ body {
       
       <div class="footer-section">
         <h3>Дата</h3>
-        <p>2 мая 2026</p>
-        <p>Начало в 11:00</p>
+        <p>9 мая 2026</p>
+        <p>Начало в 18:00</p>
       </div>
       
       <div class="footer-section">
@@ -1190,12 +1556,7 @@ window.addEventListener('load', () => {
   }, 600);
 });
 
-// RSVP button
-document.querySelector(".rsvp").addEventListener("click", () => {
-  alert("Спасибо за подтверждение! 💍");
-});
-
-// Audio control
+// RSVP Form Submission
 const bgMusic = document.getElementById('bgMusic');
 const audioControl = document.getElementById('audioControl');
 const mobileAudioControl = document.getElementById('mobileAudioControl');
@@ -1240,9 +1601,48 @@ document.addEventListener('click', () => {
   }
 }, { once: true });
 
-// Countdown Timer
+// RSVP Form Submission
+const rsvpForm = document.getElementById('rsvpForm');
+if (rsvpForm) {
+  rsvpForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const guestName = document.getElementById('guestName').value;
+    const attendance = document.querySelector('input[name="attendance"]:checked').value;
+    
+    // Google Form URL with pre-filled entries
+    const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSfYhvZi7jT8b1kjedKmYGBhro07YTqB4pTxVRFUw-rNnbRLFg/formResponse?entry.524372522=${encodeURIComponent(guestName)}&entry.1232571184=${encodeURIComponent(attendance)}&submit=Submit`;
+    
+    // Submit to Google Forms using iframe
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.name = 'hidden_iframe';
+    document.body.appendChild(iframe);
+    
+    const form = document.createElement('form');
+    form.target = 'hidden_iframe';
+    form.method = 'POST';
+    form.action = formUrl;
+    document.body.appendChild(form);
+    form.submit();
+    
+    // Show success message
+    alert('Спасибо! Ваш ответ принят! 💕');
+    
+    // Reset form
+    rsvpForm.reset();
+    
+    // Clean up
+    setTimeout(() => {
+      document.body.removeChild(iframe);
+      document.body.removeChild(form);
+    }, 1000);
+  });
+}
+
+// Audio control
 function updateCountdown() {
-  const weddingDate = new Date('2026-05-02T11:00:00').getTime();
+  const weddingDate = new Date('2026-05-09T18:00:00').getTime();
   const now = new Date().getTime();
   const distance = weddingDate - now;
 
@@ -1269,12 +1669,12 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// Smooth scroll for navigation
-document.querySelectorAll('.nav a, .mobile-menu a').forEach(anchor => {
+// Smooth scroll for navigation and RSVP button
+document.querySelectorAll('.nav a, .mobile-menu a, .rsvp').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
     const targetId = this.getAttribute('href');
-    if (targetId.startsWith('#')) {
+    if (targetId && targetId.startsWith('#')) {
       const target = document.querySelector(targetId);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
